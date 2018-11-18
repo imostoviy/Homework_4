@@ -30,6 +30,7 @@ class SecondViewController: UIViewController {
     
     @objc func handleSelfmadeSliderChangeValue() {
         selfmadeView.alpha = CGFloat(selfmadeSlider.value)
+        selfmadeView.layer.cornerRadius = 10 * CGFloat(selfmadeSlider.value)
     }
     
     
