@@ -10,21 +10,28 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    var selfmadeSlider: UISlider!
+    var selfmadeView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        selfmadeSlider = UISlider(frame: CGRect(x: 40, y: 180, width: self.view.frame.width - 2 * 40, height: 20))
+        selfmadeSlider.minimumValue = 0
+        selfmadeSlider.maximumValue = 1
+        selfmadeSlider.value = 0
+        self.view.addSubview(selfmadeSlider)
+        selfmadeSlider.addTarget(self, action: #selector(handleSelfmadeSliderChangeValue), for: .valueChanged)
+        selfmadeView = UIView(frame: CGRect(x: 40, y: 210, width: self.view.frame.width - 2 * 40, height: 60))
+        selfmadeView.backgroundColor = .black
+        selfmadeView.alpha = CGFloat(selfmadeSlider.value)
+        selfmadeView.layer.cornerRadius = 7
+        self.view.addSubview(selfmadeView)
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func handleSelfmadeSliderChangeValue() {
+        selfmadeView.alpha = CGFloat(selfmadeSlider.value)
     }
-    */
+    
+    
 
 }
