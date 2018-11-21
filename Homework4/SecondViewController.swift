@@ -14,17 +14,18 @@ class SecondViewController: UIViewController {
     var selfmadeView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        selfmadeSlider = UISlider(frame: CGRect(x: 40, y: 180, width: self.view.frame.width - 2 * 40, height: 20))
+        selfmadeSlider = UISlider(frame: CGRect(x: 40, y: 180, width: view.frame.width - 2 * 40, height: 20))
         selfmadeSlider.minimumValue = 0
         selfmadeSlider.maximumValue = 1
         selfmadeSlider.value = 0
-        self.view.addSubview(selfmadeSlider)
+        view.addSubview(selfmadeSlider)
         selfmadeSlider.addTarget(self, action: #selector(handleSelfmadeSliderChangeValue), for: .valueChanged)
-        selfmadeView = UIView(frame: CGRect(x: 40, y: 210, width: self.view.frame.width - 2 * 40, height: 60))
+        
+        selfmadeView = UIView(frame: CGRect(x: 40, y: 210, width: view.frame.width - 2 * 40, height: 60))
         selfmadeView.backgroundColor = .black
         selfmadeView.alpha = CGFloat(selfmadeSlider.value)
         selfmadeView.layer.cornerRadius = 7
-        self.view.addSubview(selfmadeView)
+        view.addSubview(selfmadeView)
         // Do any additional setup after loading the view.
     }
     
